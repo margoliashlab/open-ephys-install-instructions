@@ -3,6 +3,16 @@
 
 These steps are correct as of Nov 6, 2015
 
+First check if the machine is 32 or 64 bit.
+
+    uname -m
+
+If the machine is 64 bit, download the latest binary with:
+
+    https://github.com/open-ephys-GUI-binaries/linux-64/archive/master.zip
+    
+Otherwise follow the compile instructions below.
+
 They were pieced together from https://open-ephys.atlassian.net/wiki/display/OEW/Linux and other sources of information.
 
 You will need to build the program from source, as compiled binaries currently only exist for 64-bit Linux. The steps are:
