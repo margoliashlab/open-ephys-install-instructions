@@ -13,9 +13,10 @@ You will need to build the program from source, as compiled binaries currently o
 
 ## Obtain the Open Ephys source
 
-Clone the repository (forked at the margoliashlab github account under ‘GUI’) into the appropriate folder (your choice):
+Obtain the source code. Extract into the appropriate folder (your choice):
 
     wget https://github.com/open-ephys/GUI/archive/v0.3.6.tar.gz
+    tar -xvf v0.3.6.tar.gz
 
 ## Install the ZeroMQ library.
 
