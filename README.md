@@ -1,1 +1,0 @@
-# open-ephys-install-instructions
