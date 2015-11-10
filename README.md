@@ -73,10 +73,10 @@ Now there are four make invocations, each one of which may take some time (tens 
 
     make
     make check
-    sudo make install
-    sudo make check-install
+    make install
+    make check-install
 
-The last thing to do is to make sure the current session’s environment variables contain the appropriate paths to this new HDF5 library. You need to set three environment variables:
+You may need superuser privileges to `make install` globally. The last thing to do is to make sure the current session’s environment variables contain the appropriate paths to this new HDF5 library. You need to set three environment variables:
 
     export CPLUS_INCLUDE_PATH=[path to hdf5 directory]/include
     export LIBRARY_PATH=[path to hdf5 directory]/lib
