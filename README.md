@@ -1,5 +1,5 @@
 
-# Installation of the Open Ephys GUI on a 32-bit Debian machine
+# Installation of the Open Ephys GUI on a 32-bit or 64-bit Debian machine
 
 These steps are correct as of Nov 6, 2015
 
@@ -7,11 +7,11 @@ First check if the machine is 32 or 64 bit.
 
     uname -m
 
-If the machine is 64 bit, download the latest binary with:
+If the machine is 64 bit, you can download the latest binary with:
 
     https://github.com/open-ephys-GUI-binaries/linux-64/archive/master.zip
     
-Otherwise follow the compile instructions below.
+Though the instructions recomend compiling from source for some reason. Otherwise follow the compile instructions below.
 
 They were pieced together from https://open-ephys.atlassian.net/wiki/display/OEW/Linux and other sources of information.
 
@@ -21,12 +21,6 @@ You will need to build the program from source, as compiled binaries currently o
 3. Install the latest HDF5 library version
 4. Install the Open Ephys GUI
 
-## Obtain the Open Ephys source
-
-Obtain the source code. Extract into the appropriate folder (your choice):
-
-    wget https://github.com/open-ephys/GUI/archive/v0.3.6.tar.gz
-    tar -xvf v0.3.6.tar.gz
 
 ## Install the ZeroMQ library.
 
@@ -52,6 +46,9 @@ Now update the package list information
 Now you can install the libraries themselves. For the version of the Open Ephys GUI current at the time of this writing, you need version 3 of the ZeroMQ API. This is specified in the command below:
 
     sudo apt-get install libzmq3-dbg libzmq3-dev libzmq3
+
+### Wheezy (Debian 7) and libc
+If you get an error about the libc version being too old in the repositories, you can do a partial upgrade to Jessie (Debian 8). Do this by editing `/etc/apt/sources.list` and replacing all instances of `wheezy` with jessie. Then `sudo apt-get update` and `sudo apt-get upgrade`.
 
 ## Install the HDF5 library
 
@@ -81,6 +78,13 @@ You may need superuser privileges to `make install` globally. The last thing to 
     export CPLUS_INCLUDE_PATH=[path to hdf5 directory]/include
     export LIBRARY_PATH=[path to hdf5 directory]/lib
     export LD_LIBRARY_PATH=[path to hdf5 directory]/lib
+
+## Obtain the Open Ephys source
+
+Obtain the source code. Extract into the appropriate folder (your choice):
+
+    wget https://github.com/open-ephys/GUI/archive/v0.3.6.tar.gz
+    tar -xvf v0.3.6.tar.gz
 
 ## Build the Open Ephys GUI itself
 
