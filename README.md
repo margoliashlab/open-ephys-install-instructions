@@ -121,7 +121,9 @@ Don’t forget to chmod it to allow execution:
 
     chmod a+x open-ephys.sh
 
-NOW you’re done.
+## Grab the Intan EVAL Rhythm .bit file
+
+Open Ephys has their own special board instead of the EVAL board. To use the EVAL board ADCs, you must copy the main.bit from the Intan source and replace the RHD2000.bit that comes with the open-ephys source code.
 
 ## Appendix A: Some Reading for the Curious or Desperate
 
