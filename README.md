@@ -11,7 +11,7 @@ If the machine is 64 bit, you can download the latest binary with:
 
     https://github.com/open-ephys-GUI-binaries/linux-64/archive/master.zip
     
-Though the instructions recomend compiling from source for some reason. Otherwise follow the compile instructions below.
+Though the instructions recommend compiling from source for some reason. Otherwise follow the compile instructions below.
 
 They were pieced together from https://open-ephys.atlassian.net/wiki/display/OEW/Linux and other sources of information.
 
@@ -79,16 +79,15 @@ You may need superuser privileges to `make install` globally. The last thing to 
     export LIBRARY_PATH=[path to hdf5 directory]/lib
     export LD_LIBRARY_PATH=[path to hdf5 directory]/lib
 
-## Obtain the Open Ephys source
 
-Obtain the source code. Extract into the appropriate folder (your choice):
+## Install the Open Ephys GUI from source
 
-    wget https://github.com/open-ephys/GUI/archive/v0.3.6.tar.gz
-    tar -xvf v0.3.6.tar.gz
+Obtain the source code.
 
-## Build the Open Ephys GUI itself
+    git clone https://github.com/open-ephys/plugin-GUI.git
+    cd plugin-GUI
 
-First, run the dependency installation script in the GUI/Resources/Scripts folder:
+Run the dependency installation script in the GUI/Resources/Scripts folder:
 
     sudo ./install_linux_dependencies.sh
 
@@ -99,7 +98,11 @@ Then copy the device interface rules file (in the same directory as above) to th
 
 cd to GUI/Builds/Linux and run make
 
-    make
+    make -j4
+
+Then install the plugins
+
+    make -j4 -f Makefile.plugins
 
 The installation should go smoothly if you’ve followed the above instructions. The binary to run the GUI is called ‘open-ephys’ and resides in GUI/Builds/Linux/build.
 
@@ -115,7 +118,7 @@ You can copy the script I wrote from my directory on modeln, or you can copy it 
     export LIBRARY_PATH=[path to hdf5 directory]/lib
     export LD_LIBRARY_PATH=[path to hdf5 directory]/lib
     
-    [path to open-ephys folder]/GUI/Builds/Linux/build/open-ephys
+    [path to open-ephys folder]/plugin-GUI/Builds/Linux/build/open-ephys
 
 Don’t forget to chmod it to allow execution:
 
@@ -124,6 +127,11 @@ Don’t forget to chmod it to allow execution:
 ## Grab the Intan EVAL Rhythm .bit file
 
 Open Ephys has their own special board instead of the EVAL board. To use the EVAL board ADCs, you must copy the main.bit from the Intan source and replace the RHD2000.bit that comes with the open-ephys source code.
+This looks something like this:
+
+    cd [path to open-ephys folder]/plugin-GUI/Builds/Linux/build
+    mv rhd2000.bit rhd2000.bit.backup
+    cp [path to intan source]/main.bit rhd2000.bit
 
 ## Appendix A: Some Reading for the Curious or Desperate
 
