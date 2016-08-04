@@ -135,12 +135,7 @@ This looks something like this:
     mv rhd2000.bit rhd2000.bit.backup
     cp [path to intan source]/main.bit rhd2000.bit
     
-## Make sure the acquisition board is recognized
 
-I've encountered this problem on Ubuntu 16.04. The GUI wasn't able to find the board, even though I did all the previous steps. You also need to do:
-    
-    sudo cp Resources/Scripts/40-open-ephys.rules /etc/udev/rules.d
- 
 ## Appendix A: Some Reading for the Curious or Desperate
 
 The build instructions from the Open Ephys devs are linked at the top of this document. Further information I found helpful in creating this guide can be found at the following links. These may prove helpful if you run into trouble and can’t solve it immediately.
