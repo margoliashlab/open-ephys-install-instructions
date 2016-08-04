@@ -1,7 +1,9 @@
 
 # Installation of the Open Ephys GUI on a 32-bit or 64-bit Debian machine
 
-These steps are correct as of Nov 6, 2015
+These steps are correct as of Aug 4, 2016, in particular for the 0.4.1 version of the plugin-GUI.
+
+Also note that if you're on a new version of Ubuntu, you don't need to compile the HDF5 library by hand, and you can follow [these instruction](https://github.com/margoliashlab/ArfFormat) to make the software. However, you still need to perform the last steps of this guide (grabbing the .bit file and making sure acquisition board is recognized - this seems to be especially important on Ubuntu).
 
 First check if the machine is 32 or 64 bit.
 
@@ -132,7 +134,13 @@ This looks something like this:
     cd [path to open-ephys folder]/plugin-GUI/Builds/Linux/build
     mv rhd2000.bit rhd2000.bit.backup
     cp [path to intan source]/main.bit rhd2000.bit
+    
+## Make sure the acquisition board is recognized
 
+I've encountered this problem on Ubuntu 16.04. The GUI wasn't able to find the board, even though I did all the previous steps. You also need to do:
+    
+    sudo cp Resources/Scripts/40-open-ephys.rules /etc/udev/rules.d
+ 
 ## Appendix A: Some Reading for the Curious or Desperate
 
 The build instructions from the Open Ephys devs are linked at the top of this document. Further information I found helpful in creating this guide can be found at the following links. These may prove helpful if you run into trouble and can’t solve it immediately.
